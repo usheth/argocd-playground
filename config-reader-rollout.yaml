@@ -34,8 +34,8 @@ spec:
         - experiment:
             duration: 5m
             templates:
-            - name: canary
-              specRef: canary-replicaset
+            - name: test-canary
+              specRef: canary
         - pause: {}  # manual promotion
         - setWeight: 100
       trafficRouting:
