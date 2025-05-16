@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: stable-confog
+  name: stable-config
   namespace: playground
 data:
   config.txt: |
