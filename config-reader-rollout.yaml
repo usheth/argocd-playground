@@ -48,13 +48,14 @@ spec:
       stableService: config-reader-stable
       canaryService: config-reader-canary
       steps:
-        - setWeight: 100
+        - setWeight: 0
         - experiment:
             duration: 5m
             templates:
             - name: canary
               specRef: canary
         - pause: {}  # manual promotion
+        - setWeight: 100
       trafficRouting:
         istio:
           virtualService:
