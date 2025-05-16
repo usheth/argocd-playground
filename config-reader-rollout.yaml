@@ -14,9 +14,9 @@ spec:
       canaryService: config-reader-canary
       steps:
         - experiment:
-          templates:
-            - name: noop-experiment
-              specRef: default
+            templates:
+              - name: noop-experiment
+                specRef: default
         - setWeight: 100
         - pause: {}  
       trafficRouting:
