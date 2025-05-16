@@ -10,6 +10,8 @@ spec:
     name: config-reader
   strategy:
     canary:
+      stableService: config-reader-stable
+      canaryService: config-reader-canary
       steps:
         - setWeight: 100
         - pause: { duration: 0s }
@@ -19,5 +21,3 @@ spec:
             name: config-reader-vs
             routes:
               - primary
-          stableService: config-reader-stable
-          canaryService: config-reader-canary
