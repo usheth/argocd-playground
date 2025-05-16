@@ -30,6 +30,11 @@ spec:
       stableService: config-reader-stable
       canaryService: config-reader-canary
       steps:
+        - experiment:
+          duration: 5m
+          templates:
+          - name: canary
+            specRef: canary
         - setWeight: 100
         - pause: {}  # manual promotion
       trafficRouting:
