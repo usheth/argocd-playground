@@ -12,7 +12,12 @@ spec:
     - name: primary
       route:
         - destination:
-            host: config-reader-canary
+            host: config-reader-stable
             port:
               number: 80
           weight: 100
+        - destination:
+            host: config-reader-canary
+            port:
+              number: 80
+          weight: 0
