@@ -4,36 +4,47 @@ metadata:
   name: config-reader-rollout
   namespace: playground
 spec:
-  workloadRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: config-reader
+  replicas: 0
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: config-reader
+  template:
+    metadata:
+      labels:
+        app: config-reader
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:alpine
+          volumeMounts:
+            - name: config-volume
+              mountPath: /usr/share/nginx/html
+              readOnly: true
+      volumes:
+        - name: config-volume
+          configMap:
+            name: my-config
   strategy:
     canary:
       stableService: config-reader-stable
       canaryService: config-reader-canary
-      stableMetadata:
-        labels:
-          role: stable
-      canaryMetadata:
-        labels:
-          role: canary
       steps:
         - experiment:
             templates:
               - name: canary-test
-                specRef: pod-template
-                overrides:
-                  volumes:
-                    - name: config-volume
-                      configMap:
-                        name: canary-config
+                spec:
                   containers:
                     - name: nginx
+                      image: nginx:alpine
                       volumeMounts:
                         - name: config-volume
                           mountPath: /usr/share/nginx/html
                           readOnly: true
+                  volumes:
+                    - name: config-volume
+                      configMap:
+                        name: canary-config
         - pause: {}  # manual promotion
       trafficRouting:
         istio:
