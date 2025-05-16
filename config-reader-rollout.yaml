@@ -25,6 +25,24 @@ spec:
         - name: config-volume
           configMap:
             name: stable-config
+  podTemplates:
+    - name: canary
+      template:
+        metadata:
+          labels:
+            app: config-reader
+        spec:
+          containers:
+            - name: nginx
+              image: nginx:alpine
+              volumeMounts:
+                - name: config-volume
+                  mountPath: /usr/share/nginx/html
+                  readOnly: true
+          volumes:
+            - name: config-volume
+              configMap:
+                name: canary-config
   strategy:
     canary:
       stableService: config-reader-stable
