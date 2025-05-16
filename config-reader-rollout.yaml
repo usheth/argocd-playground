@@ -12,6 +12,12 @@ spec:
     canary:
       stableService: config-reader-stable
       canaryService: config-reader-canary
+      stableMetadata:
+        labels:
+          role: stable
+      canaryMetadata:
+        labels:
+          role: canary
       steps:
         - experiment:
             templates:
