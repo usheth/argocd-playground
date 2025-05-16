@@ -35,7 +35,7 @@ spec:
             duration: 5m
             templates:
             - name: canary
-              specRef: canary
+              specRef: canary-replicaset
         - pause: {}  # manual promotion
         - setWeight: 100
       trafficRouting:
