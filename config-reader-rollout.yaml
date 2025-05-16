@@ -14,7 +14,7 @@ spec:
       canaryService: config-reader-canary
       steps:
         - setWeight: 100
-        - pause: { duration: 0s }
+        - pause: {}  
       trafficRouting:
         istio:
           virtualService:
