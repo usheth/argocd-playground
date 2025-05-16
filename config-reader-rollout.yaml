@@ -63,7 +63,7 @@ spec:
                         - name: config-volume
                           mountPath: /usr/share/nginx/html
                           readOnly: true
-        - setWeight: 100
+          - setWeight: 100
         - pause: {}  # manual promotion
       trafficRouting:
         istio:
