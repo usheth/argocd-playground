@@ -18,6 +18,6 @@ spec:
       trafficRouting:
         istio:
           virtualService:
-            name: config-reader-vs
+            name: config-reader-virtual-service
             routes:
               - primary
