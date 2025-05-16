@@ -13,6 +13,10 @@ spec:
       stableService: config-reader-stable
       canaryService: config-reader-canary
       steps:
+        - experiment:
+          templates:
+            - name: noop-experiment
+              specRef: default
         - setWeight: 100
         - pause: {}  
       trafficRouting:
