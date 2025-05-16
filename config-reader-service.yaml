@@ -1,13 +1,22 @@
+---
 apiVersion: v1
 kind: Service
 metadata:
-  name: config-reader-service
-  namespace: playground
+  name: config-reader-stable
 spec:
   selector:
     app: config-reader
   ports:
-    - protocol: TCP
-      port: 80
+    - port: 80
       targetPort: 80
-  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: config-reader-canary
+spec:
+  selector:
+    app: config-reader
+  ports:
+    - port: 80
+      targetPort: 80
