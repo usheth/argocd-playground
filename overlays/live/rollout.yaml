@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: config-reader-live
+  namespace: playground
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: config-reader
+  template:
+    metadata:
+      annotations:
+        rollout-restart-ts: "wewsfsde"
+      labels:
+        app: config-reader
+    spec:
+      volumes:
+        - name: config-volume
+          configMap:
+            name: stable-config
+  strategy:
+    canary:
+      stableService: config-reader-stable
+      canaryService: config-reader-canary
+      steps:
+        - setWeight: 0
+        - pause: {}
+      trafficRouting:
+        istio:
+          virtualService:
+            name: config-reader-virtual-service
+            routes:
+              - primary
