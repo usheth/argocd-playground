@@ -14,7 +14,7 @@ spec:
   template:
     metadata:
       annotations:
-        rollout-restart-ts: "174142"
+        rollout-restart-ts: "17414w242"
       labels:
         app: config-reader-test
     spec:
