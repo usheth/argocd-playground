@@ -13,9 +13,18 @@ spec:
       app: config-reader-test
   template:
     metadata:
+      annotations:
+        rollout-restart-ts: "dfdsfdwf"
       labels:
         app: config-reader-test
     spec:
+      containers:
+        - name: nginx
+          image: nginx:alpine
+          volumeMounts:
+            - name: config-volume
+              mountPath: /usr/share/nginx/html
+              readOnly: true
       volumes:
         - name: config-volume
           configMap:
@@ -24,5 +33,4 @@ spec:
     canary:
       steps:
         - setWeight: 0
-        - pause: {}
-
+        - pause: {}  # Manual promotion required
