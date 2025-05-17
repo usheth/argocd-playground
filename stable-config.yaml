@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: stable-config
-  namespace: playground
-data:
-  config.txt: |
-    This is the stable deployment. 
-    
