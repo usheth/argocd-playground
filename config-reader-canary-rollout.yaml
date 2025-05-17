@@ -5,7 +5,6 @@ metadata:
   namespace: playground
   annotations:
     argocd.argoproj.io/sync-wave: "0"
-    rollout-restart-ts: "17474142"
 spec:
   replicas: 1
   revisionHistoryLimit: 1
@@ -14,6 +13,8 @@ spec:
       app: config-reader-test
   template:
     metadata:
+      annotations:
+        rollout-restart-ts: "17474142"
       labels:
         app: config-reader-test
     spec:
