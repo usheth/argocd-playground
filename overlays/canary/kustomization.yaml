@@ -1,5 +1,0 @@
-resources:
-  - ../../base
-  - rollout.yaml
-patchesStrategicMerge:
-  - rollout.yaml
