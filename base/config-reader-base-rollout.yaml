@@ -1,22 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: config-reader-canary
   namespace: playground
-  annotations:
-    argocd.argoproj.io/sync-wave: "0"
 spec:
   replicas: 1
   revisionHistoryLimit: 1
-  selector:
-    matchLabels:
-      app: config-reader-test
   template:
-    metadata:
-      annotations:
-        rollout-restart-ts: "dfdsfdwf"
-      labels:
-        app: config-reader-test
     spec:
       containers:
         - name: nginx
@@ -28,9 +17,4 @@ spec:
       volumes:
         - name: config-volume
           configMap:
-            name: canary-config
-  strategy:
-    canary:
-      steps:
-        - setWeight: 0
-        - pause: {}  # Manual promotion required
+            name: config-volume 
