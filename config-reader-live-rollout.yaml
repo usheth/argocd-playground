@@ -5,6 +5,7 @@ metadata:
   namespace: playground
   annotations:
     argocd.argoproj.io/sync-wave: "1"
+    rollout-restart-ts: "1747416642"
 spec:
   replicas: 1
   revisionHistoryLimit: 2
