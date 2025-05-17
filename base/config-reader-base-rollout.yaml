@@ -1,6 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
+  name: config-reader
   namespace: playground
 spec:
   replicas: 1
