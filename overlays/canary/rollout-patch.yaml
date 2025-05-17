@@ -15,7 +15,7 @@ spec:
   volumes:
     - name: config-volume
       configMap:
-        name: canary-config
+        name: config-reader-canary-config
   strategy:
     canary:
       steps:

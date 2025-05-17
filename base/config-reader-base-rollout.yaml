@@ -24,7 +24,7 @@ spec:
       volumes:
         - name: config-volume
           configMap:
-            name: config-volume
+            name: config-volume-placeholder
   strategy:
     canary:
       steps:

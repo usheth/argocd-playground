@@ -7,4 +7,6 @@ resources:
   - stable-config.yaml
 
 commonLabels:
-  app.kubernetes.io/part-of: config-reader 
+  app.kubernetes.io/part-of: config-reader
+
+namePrefix: config-reader- 
