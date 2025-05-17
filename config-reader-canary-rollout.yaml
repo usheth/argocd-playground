@@ -14,7 +14,7 @@ spec:
   template:
     metadata:
       annotations:
-        rollout-restart-ts: "1741erwer42"
+        rollout-restart-ts: "dfdsfdwf"
       labels:
         app: config-reader-test
     spec:
@@ -33,4 +33,4 @@ spec:
     canary:
       steps:
         - setWeight: 0
-        - setWeight: 100
+        - pause: {}  # Manual promotion required
