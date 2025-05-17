@@ -24,4 +24,9 @@ spec:
       volumes:
         - name: config-volume
           configMap:
-            name: config-volume 
+            name: config-volume
+  strategy:
+    canary:
+      steps:
+        - setWeight: 0
+        - pause: {} 
