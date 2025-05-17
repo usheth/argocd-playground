@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: shared-config
+  namespace: playground
+data:
+  shared.txt: |
+    This is the shared config. Current iteration = 1.
+    
+

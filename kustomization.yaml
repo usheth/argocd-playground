@@ -8,3 +8,4 @@ resources:
   - base/config-reader-service.yaml
   - base/config-reader-virtual-service.yaml
   - base/stable-config.yaml
+  - base/shared-config.yaml

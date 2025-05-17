@@ -25,10 +25,16 @@ spec:
             - name: config-volume
               mountPath: /usr/share/nginx/html
               readOnly: true
+            - name: shared-volume
+              mountPath: /usr/share/
+              readOnly: true
       volumes:
         - name: config-volume
           configMap:
             name: stable-config
+        - name: shared-volume
+          configMap:
+            name: shared-config
   strategy:
     canary:
       stableService: config-reader-stable
