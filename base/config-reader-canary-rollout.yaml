@@ -33,7 +33,8 @@ spec:
           configMap:
             name: canary-config
         - name: shared-volume
-          configMap: shared-config
+          configMap: 
+            name: shared-config
   strategy:
     canary:
       steps:
