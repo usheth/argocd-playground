@@ -5,6 +5,6 @@ metadata:
   namespace: playground
 data:
   shared.txt: |
-    This is the shared config. Current iteration = 1.
+    This is the shared config. Current iteration = 2.
     
 
