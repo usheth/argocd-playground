@@ -1,0 +1,6 @@
+resources:
+  - ../../base
+  - rollout.yaml
+patchesStrategicMerge:
+  - ../../base/common-pod-template.yaml
+
