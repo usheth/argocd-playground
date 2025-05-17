@@ -33,27 +33,7 @@ spec:
       canaryService: config-reader-canary
       steps:
         - setWeight: 0
-        - experiment:
-            duration: 5m
-            templates:
-            - name: test-canary
-              specRef: canary
-        - pause: {}  # manual promotion
-        - setWeight: 100
-      templates:
-        - name: canary
-          spec:
-            containers:
-              - name: nginx
-                image: nginx:alpine
-                volumeMounts:
-                  - name: config-volume
-                    mountPath: /usr/share/nginx/html
-                    readOnly: true
-            volumes:
-              - name: config-volume
-                configMap:
-                  name: test-config  # <-- test config used in experiment
+        - pause: {}  # Manual promotion required
       trafficRouting:
         istio:
           virtualService:
