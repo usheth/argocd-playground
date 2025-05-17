@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: config-reader-live-rollout
+  name: config-reader-live
   namespace: playground
   annotations:
     argocd.argoproj.io/sync-wave: "1"
