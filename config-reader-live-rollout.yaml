@@ -14,7 +14,7 @@ spec:
   template:
     metadata:
       annotations:
-        rollout-restart-ts: "1747416642"
+        rollout-restart-ts: "wewe"
       labels:
         app: config-reader
     spec:
