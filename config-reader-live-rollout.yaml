@@ -13,7 +13,7 @@ spec:
       app: config-reader
   template:
     metadata:
-      annotatons:
+      annotations:
         rollout-restart-ts: "1747416642"
       labels:
         app: config-reader
