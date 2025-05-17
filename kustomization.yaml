@@ -1,3 +1,0 @@
-resources:
-  - overlays/canary
-  - overlays/live
