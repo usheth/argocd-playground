@@ -4,6 +4,8 @@ kind: Kustomization
 resources:
   - ../../base
 
+namePrefix: canary-
+
 patches:
   - path: rollout-patch.yaml
     target:

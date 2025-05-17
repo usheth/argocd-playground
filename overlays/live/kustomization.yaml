@@ -6,8 +6,9 @@ resources:
   - config-reader-service.yaml
   - config-reader-virtual-service.yaml
 
+namePrefix: live-
+
 patches:
   - path: rollout-patch.yaml
     target:
-      kind: Rollout
-      name: config-reader-base 
+      kind: Rollout 

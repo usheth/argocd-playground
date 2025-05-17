@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: config-reader-canary
+  name: config-reader
   annotations:
     argocd.argoproj.io/sync-wave: "0"
 spec:
