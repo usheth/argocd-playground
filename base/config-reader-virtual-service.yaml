@@ -1,0 +1,23 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: config-reader-virtual-service
+  namespace: playground
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - istio-system/ingressgateway
+  http:
+    - name: primary
+      route:
+        - destination:
+            host: config-reader-stable
+            port:
+              number: 80
+          weight: 100
+        - destination:
+            host: config-reader-canary
+            port:
+              number: 80
+          weight: 0
